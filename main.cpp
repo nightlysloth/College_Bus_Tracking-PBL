@@ -5,6 +5,7 @@
 // Simple, beginner-friendly C++ code.
 // No friend functions, no static variables/functions, no reference parameters.
 // All functions use call-by-value and access the global 'sys' object.
+// Contains only fully implemented and working features.
 //
 // Compile:  g++ *.cpp -o main
 // Run:      ./main data/
@@ -68,26 +69,6 @@ int askForStation(string prompt) {
         }
     }
     return -1;
-}
-
-// Prints a path stored in an IntStack: A -> B -> C
-void printPath(IntStack path) {
-    cout << "Path: ";
-    bool isFirst = true;
-    while (!path.isEmpty()) {
-        if (!isFirst) {
-            cout << " -> ";
-        }
-        int stIdx = path.pop();
-        cout << sys.stations[stIdx].name;
-        isFirst = false;
-    }
-    cout << endl;
-}
-
-// Prints message for features reserved for the next phase
-void printNotReady(string what, string step) {
-    cout << "[TODO] " << what << " is not implemented yet (next phase, " << step << ")." << endl;
 }
 
 // ---------------------------------------------------------------------
@@ -166,51 +147,40 @@ void featureSearchBus() {
 }
 
 // ---------------------------------------------------------------------
-// Feature 3: Route Search
+// Feature 3: Route of a Bus Number
 // ---------------------------------------------------------------------
 void featureSearchRoute() {
-    cout << " 1. Route of a bus number" << endl;
-    cout << " 2. Buses from station A to station B" << endl;
-    int choice = readNumber("Choice: ");
-
-    if (choice == 1) {
-        int busNo = readNumber("Enter bus number: ");
-        int b = sys.findBus(busNo);
-        if (b == -1) {
-            cout << "Bus not found." << endl;
-            return;
-        }
-
-        Bus bus = sys.buses[b];
-        int status = sys.getStatus(b);
-        int cur = sys.currentStopIndex(b);
-
-        cout << endl << "Route of bus " << bus.busNo << " (" << statusName(status) << ")" << endl;
-        cout << left << setw(5) << "#" << setw(24) << "Station" << "Scheduled" << endl;
-
-        for (int i = 0; i < bus.stopCount; i++) {
-            int scheduledTime = bus.departure + sys.cumulativeTime(b, i);
-            cout << left << setw(5) << (i + 1)
-                 << setw(24) << sys.stations[bus.stops[i]].name
-                 << formatTime(scheduledTime);
-
-            if (status == RUNNING && i == cur) {
-                cout << "   <-- bus is here";
-            }
-            cout << endl;
-        }
-        cout << "Total travel time: " << sys.cumulativeTime(b, bus.stopCount - 1) << " min" << endl;
-
-    } else if (choice == 2) {
-        int from = askForStation("From station: ");
-        if (from == -1) return;
-        int to = askForStation("To station: ");
-        if (to == -1) return;
-
-        printNotReady("Route search between two stations", "Step 1");
-    } else {
-        cout << "Invalid choice." << endl;
+    int busNo = readNumber("Enter bus number: ");
+    if (busNo == -1) {
+        cout << "Please enter a valid bus number." << endl;
+        return;
     }
+
+    int b = sys.findBus(busNo);
+    if (b == -1) {
+        cout << "Bus " << busNo << " not found." << endl;
+        return;
+    }
+
+    Bus bus = sys.buses[b];
+    int status = sys.getStatus(b);
+    int cur = sys.currentStopIndex(b);
+
+    cout << endl << "Route of bus " << bus.busNo << " (" << statusName(status) << ")" << endl;
+    cout << left << setw(5) << "#" << setw(24) << "Station" << "Scheduled" << endl;
+
+    for (int i = 0; i < bus.stopCount; i++) {
+        int scheduledTime = bus.departure + sys.cumulativeTime(b, i);
+        cout << left << setw(5) << (i + 1)
+             << setw(24) << sys.stations[bus.stops[i]].name
+             << formatTime(scheduledTime);
+
+        if (status == RUNNING && i == cur) {
+            cout << "   <-- bus is here";
+        }
+        cout << endl;
+    }
+    cout << "Total travel time: " << sys.cumulativeTime(b, bus.stopCount - 1) << " min" << endl;
 }
 
 // ---------------------------------------------------------------------
@@ -297,54 +267,7 @@ void featureRecommend() {
 }
 
 // ---------------------------------------------------------------------
-// Features 6, 7, 8: Graph Stubs
-// ---------------------------------------------------------------------
-void featureShortestTime() {
-    int from = askForStation("From station: ");
-    if (from == -1) return;
-    int to = askForStation("To station: ");
-    if (to == -1) return;
-    printNotReady("Shortest time (Dijkstra)", "Step 3");
-}
-
-void featureFewestStops() {
-    int from = askForStation("From station: ");
-    if (from == -1) return;
-    int to = askForStation("To station: ");
-    if (to == -1) return;
-    printNotReady("Fewest stops (BFS)", "Step 4");
-}
-
-void featureConnectivity() {
-    int from = askForStation("Start station: ");
-    if (from == -1) return;
-    printNotReady("Connectivity (DFS)", "Step 5");
-}
-
-// ---------------------------------------------------------------------
-// Feature 9: Sorting Demo Stub
-// ---------------------------------------------------------------------
-void featureSortingDemo() {
-    cout << "Sort by: 1) Bus number  2) Free seats  3) Arrival at Geu" << endl;
-    int sortBy = readNumber("Choice: ");
-    cout << "Algorithm: 1) Bubble  2) Insertion  3) Selection" << endl;
-    int algorithm = readNumber("Choice: ");
-    if (sortBy < 1 || sortBy > 3 || algorithm < 1 || algorithm > 3) {
-        cout << "Invalid choice." << endl;
-        return;
-    }
-    printNotReady("Sorting demo", "Step 6");
-}
-
-// ---------------------------------------------------------------------
-// Feature 10: Dashboard Stub
-// ---------------------------------------------------------------------
-void featureDashboard() {
-    printNotReady("Dashboard", "Step 7");
-}
-
-// ---------------------------------------------------------------------
-// Feature 11: Advance Clock (Stack gives UNDO capability)
+// Feature 6: Advance Clock (Stack gives UNDO capability)
 // ---------------------------------------------------------------------
 void featureClock() {
     cout << "Time now: " << formatTime(sys.now) << endl;
@@ -380,15 +303,6 @@ void featureClock() {
 }
 
 // ---------------------------------------------------------------------
-// Feature 12: Save Report Stub
-// ---------------------------------------------------------------------
-void featureSaveReport() {
-    int s = askForStation("Station for the report: ");
-    if (s == -1) return;
-    printNotReady("Save report", "Step 8");
-}
-
-// ---------------------------------------------------------------------
 // Menu Display
 // ---------------------------------------------------------------------
 void printMenu() {
@@ -397,12 +311,12 @@ void printMenu() {
     cout << " Time: " << formatTime(sys.now) << "   Buses: " << sys.busCount
          << "   Stations: " << sys.stationCount << endl;
     cout << "---------------------------------------------------------" << endl;
-    cout << "  1. Search station          6. Shortest time (Dijkstra)  [TODO]" << endl;
-    cout << "  2. Search bus              7. Fewest stops (BFS)        [TODO]" << endl;
-    cout << "  3. Search route            8. Connectivity (DFS)        [TODO]" << endl;
-    cout << "  4. Arrival board           9. Sorting demo              [TODO]" << endl;
-    cout << "  5. Recommend a bus        10. Dashboard                 [TODO]" << endl;
-    cout << " 11. Advance clock          12. Save report              [TODO]" << endl;
+    cout << "  1. Search station" << endl;
+    cout << "  2. Search bus" << endl;
+    cout << "  3. Search route" << endl;
+    cout << "  4. Arrival board" << endl;
+    cout << "  5. Recommend a bus" << endl;
+    cout << "  6. Advance clock" << endl;
     cout << "  0. Exit" << endl;
 }
 
@@ -444,13 +358,7 @@ int main(int argc, char* argv[]) {
             case 3:  featureSearchRoute(); break;
             case 4:  featureArrivalBoard(); break;
             case 5:  featureRecommend(); break;
-            case 6:  featureShortestTime(); break;
-            case 7:  featureFewestStops(); break;
-            case 8:  featureConnectivity(); break;
-            case 9:  featureSortingDemo(); break;
-            case 10: featureDashboard(); break;
-            case 11: featureClock(); break;
-            case 12: featureSaveReport(); break;
+            case 6:  featureClock(); break;
             case 0:  running = false; break;
             default: cout << "Invalid choice. Try again." << endl;
         }

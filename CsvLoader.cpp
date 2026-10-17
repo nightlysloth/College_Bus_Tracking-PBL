@@ -131,7 +131,6 @@ int loadBuses(string path) {
         int departure = parseTime(parts[2]);
         string driver = parts[3];
         char type = parts[4][0];
-        int stopCountExpected = parseInt(parts[5]);
         string stopsField = parts[6];
 
         if (busNo == -1 || departure == -1 || (type != 'S' && type != 'M')) {
@@ -141,10 +140,6 @@ int loadBuses(string path) {
         // Split stops separated by ';'
         string stopNames[MAX_STOPS];
         int actualStops = splitString(stopsField, ';', stopNames, MAX_STOPS);
-
-        if (actualStops != stopCountExpected) {
-            // Stop count mismatch
-        }
 
         int stopIndexes[MAX_STOPS];
         bool allStopsFound = true;
@@ -240,10 +235,4 @@ bool loadAllData(string folder) {
          << busCount << " buses, "
          << edgeCount << " edge overrides." << endl;
     return true;
-}
-
-// Next phase stub
-int verifyRouteStops(string path) {
-    (void)path;
-    return NOT_IMPLEMENTED;
 }

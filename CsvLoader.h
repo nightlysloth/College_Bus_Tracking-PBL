@@ -21,6 +21,5 @@ int loadStations(string path);
 int loadBuses(string path);
 int loadEdges(string path);
 bool loadAllData(string folder);
-int verifyRouteStops(string path);
 
 #endif

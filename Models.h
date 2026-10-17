@@ -1,10 +1,11 @@
 // =====================================================================
 // File: Models.h
 // Purpose: Core data models for College Bus Tracking System:
-//          Station, Bus, Recommendation, Graph, and BusSystem.
+//          Station, Bus, Recommendation, and BusSystem.
 //
 // All methods use simple call-by-value (no reference parameters).
 // No friend functions, no static methods/variables.
+// Only working features are kept.
 // =====================================================================
 #ifndef MODELS_H
 #define MODELS_H
@@ -22,7 +23,6 @@ const int DEFAULT_EDGE_MINUTES = 4;    // default 4 minutes between consecutive 
 const int STANDARD_CAPACITY = 50;      // standard bus seats
 const int MINI_CAPACITY = 32;          // mini bus seats
 const int DEFAULT_START_TIME = 7 * 60; // 07:00 AM (420 minutes from midnight)
-const int NOT_IMPLEMENTED = -999;      // stub return value
 
 // Bus states
 enum BusStatus { NOT_STARTED = 0, RUNNING = 1, REACHED = 2 };
@@ -67,22 +67,6 @@ string statusName(int status);     // returns "Not Started", "Running", or "Reac
 void insertionSortByKey(int items[], int keys[], int n);
 
 // ---------------------------------------------------------------------
-// Graph Skeleton (for next phase)
-// ---------------------------------------------------------------------
-class Graph {
-public:
-    int vertexCount;
-    IntList adjTo[MAX_STATIONS];
-    IntList adjWeight[MAX_STATIONS];
-
-    Graph();
-    void buildFromRoutes();
-    int shortestTime(int src, int dst, IntStack path);
-    int fewestStops(int src, int dst, IntStack path);
-    int reachableFrom(int src, IntList reachable);
-};
-
-// ---------------------------------------------------------------------
 // BusSystem: owns all stations, buses, overrides, and simulated clock
 // ---------------------------------------------------------------------
 class BusSystem {
@@ -98,7 +82,6 @@ public:
 
     HashTable stationIndex;               // maps station name -> station index
     IntList busesAtStation[MAX_STATIONS]; // bus indexes stopping at each station
-    Graph graph;                          // graph for shortest path
 
     int now;                              // current time in minutes from midnight
     IntStack clockHistory;                // stack storing previous clock times for undo
@@ -140,13 +123,6 @@ public:
     void advanceClock(int minutes);
     void setClock(int minutes);
     bool undoClock();
-
-    // Next phase stubs
-    int findBusesBetween(int fromStation, int toStation, IntList result);
-    int sortBuses(int order[], int sortBy, int algorithm);
-    int getStatusCounts();
-    int busiestStations(int result[], int topN);
-    bool saveReport(int stationIdx, string fileName);
 };
 
 // Global system instance accessible across the application

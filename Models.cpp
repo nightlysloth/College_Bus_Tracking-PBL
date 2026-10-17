@@ -1,6 +1,6 @@
 // =====================================================================
 // File: Models.cpp
-// Purpose: Implementations of BusSystem, Graph, and helper utilities.
+// Purpose: Implementations of BusSystem and helper utilities.
 //
 // Simple, step-by-step logic designed to be easy to understand and explain.
 // All functions use call-by-value.
@@ -480,56 +480,4 @@ bool BusSystem::undoClock() {
     }
     now = clockHistory.pop(); // pop previous time from stack
     return true;
-}
-
-// ---------------------------------------------------------------------
-// STUBS FOR NEXT PHASE (Remaining 50%)
-// ---------------------------------------------------------------------
-int BusSystem::findBusesBetween(int fromStation, int toStation, IntList result) {
-    (void)fromStation; (void)toStation; (void)result;
-    return NOT_IMPLEMENTED;
-}
-
-int BusSystem::sortBuses(int order[], int sortBy, int algorithm) {
-    (void)order; (void)sortBy; (void)algorithm;
-    return NOT_IMPLEMENTED;
-}
-
-int BusSystem::getStatusCounts() {
-    return NOT_IMPLEMENTED;
-}
-
-int BusSystem::busiestStations(int result[], int topN) {
-    (void)result; (void)topN;
-    return NOT_IMPLEMENTED;
-}
-
-bool BusSystem::saveReport(int stationIdx, string fileName) {
-    (void)stationIdx; (void)fileName;
-    return false;
-}
-
-// ---------------------------------------------------------------------
-// GRAPH STUBS (Next Phase)
-// ---------------------------------------------------------------------
-Graph::Graph() {
-    vertexCount = 0;
-}
-
-void Graph::buildFromRoutes() {
-}
-
-int Graph::shortestTime(int src, int dst, IntStack path) {
-    (void)src; (void)dst; (void)path;
-    return NOT_IMPLEMENTED;
-}
-
-int Graph::fewestStops(int src, int dst, IntStack path) {
-    (void)src; (void)dst; (void)path;
-    return NOT_IMPLEMENTED;
-}
-
-int Graph::reachableFrom(int src, IntList reachable) {
-    (void)src; (void)reachable;
-    return NOT_IMPLEMENTED;
 }
