@@ -1,0 +1,371 @@
+bus_no,seq,station_id,station_name
+1,1,62,Bahuwala Raja Road
+1,2,63,Raja Road
+1,3,64,Bansiwala
+1,4,65,Manduwala
+1,5,51,Sudhowala
+1,6,52,Nanda Ki Chowki
+1,7,53,Premnagar
+1,8,54,Panditwari
+1,9,24,Baliwala Chowk
+1,10,17,GMS Road
+1,11,5,Geu
+2,1,1,Prince Chowk
+2,2,2,Saharanpur Chowk
+2,3,3,Matawala Bagh
+2,4,4,ISBT
+2,5,5,Geu
+3,1,53,Premnagar
+3,2,54,Panditwari
+3,3,55,Vasant Vihar
+3,4,24,Baliwala Chowk
+3,5,17,GMS Road
+3,6,5,Geu
+4,1,50,Selaqui Chowk
+4,2,51,Sudhowala
+4,3,52,Nanda Ki Chowki
+4,4,53,Premnagar
+4,5,54,Panditwari
+4,6,55,Vasant Vihar
+4,7,24,Baliwala Chowk
+4,8,17,GMS Road
+4,9,5,Geu
+5,1,67,Doiwala
+5,2,68,Lachiwala
+5,3,69,Kuanwala
+5,4,70,Harawala
+5,5,71,Miawala
+5,6,72,Mokampur
+5,7,73,Jogiwala
+5,8,35,Rispana
+5,9,4,ISBT
+5,10,5,Geu
+6,1,66,Ranipokhri
+6,2,67,Doiwala
+6,3,68,Lachiwala
+6,4,69,Kuanwala
+6,5,70,Harawala
+6,6,71,Miawala
+6,7,72,Mokampur
+6,8,73,Jogiwala
+6,9,35,Rispana
+6,10,4,ISBT
+6,11,5,Geu
+7,1,74,Nakrounda More
+7,2,70,Harawala
+7,3,71,Miawala
+7,4,72,Mokampur
+7,5,73,Jogiwala
+7,6,35,Rispana
+7,7,4,ISBT
+7,8,5,Geu
+8,1,90,SGRR Mathurawala
+8,2,87,Vishnupuram
+8,3,88,Bangali Kothi
+8,4,36,Kargi Chowk
+8,5,4,ISBT
+8,6,5,Geu
+9,1,3,Matawala Bagh
+9,2,6,Sabji Mandi
+9,3,7,Majra
+9,4,4,ISBT
+9,5,5,Geu
+10,1,76,Ranjawala
+10,2,77,Raipur Chowk
+10,3,80,IID
+10,4,78,Ring Road
+10,5,73,Jogiwala
+10,6,4,ISBT
+10,7,5,Geu
+11,1,81,Post Office Nehru Gram
+11,2,73,Jogiwala
+11,3,35,Rispana
+11,4,4,ISBT
+11,5,5,Geu
+12,1,48,Dharampur Chowk
+12,2,93,Balbir Road
+12,3,34,Fountain Chowk
+12,4,35,Rispana
+12,5,4,ISBT
+12,6,5,Geu
+13,1,85,Daudwala
+13,2,86,Mathurawala
+13,3,87,Vishnupuram
+13,4,88,Bangali Kothi
+13,5,36,Kargi Chowk
+13,6,4,ISBT
+13,7,5,Geu
+14,1,67,Doiwala
+14,2,68,Lachiwala
+14,3,69,Kuanwala
+14,4,70,Harawala
+14,5,71,Miawala
+14,6,72,Mokampur
+14,7,73,Jogiwala
+14,8,35,Rispana
+14,9,4,ISBT
+14,10,5,Geu
+15,1,91,Race Course
+15,2,48,Dharampur Chowk
+15,3,49,Mata Mandir
+15,4,36,Kargi Chowk
+15,5,4,ISBT
+15,6,5,Geu
+16,1,44,Survey Chowk
+16,2,45,Dwarka Store
+16,3,46,Araghar
+16,4,48,Dharampur Chowk
+16,5,49,Mata Mandir
+16,6,36,Kargi Chowk
+16,7,4,ISBT
+16,8,5,Geu
+17,1,16,Ballupur Chowk
+17,2,17,GMS Road
+17,3,5,Geu
+18,1,2,Saharanpur Chowk
+18,2,3,Matawala Bagh
+18,3,4,ISBT
+18,4,5,Geu
+19,1,8,Clock Tower
+19,2,9,Darshanlal Chowk
+19,3,2,Saharanpur Chowk
+19,4,4,ISBT
+19,5,5,Geu
+20,1,11,Garhi Cantt
+20,2,12,Vijay Coloney
+20,3,13,Chir Bagh
+20,4,14,CM House
+20,5,15,ONGC Chowk
+20,6,16,Ballupur Chowk
+20,7,17,GMS Road
+20,8,5,Geu
+21,1,25,Hathibadkala
+21,2,11,Garhi Cantt
+21,3,15,ONGC Chowk
+21,4,16,Ballupur Chowk
+21,5,17,GMS Road
+21,6,5,Geu
+22,1,23,Supply
+22,2,16,Ballupur Chowk
+22,3,17,GMS Road
+22,4,5,Geu
+23,1,16,Ballupur Chowk
+23,2,24,Baliwala Chowk
+23,3,17,GMS Road
+23,4,5,Geu
+24,1,26,Badowala Petrol Pump
+24,2,27,Telpur
+24,3,28,Mehuwala
+24,4,4,ISBT
+24,5,5,Geu
+25,1,79,Kali Mandir
+25,2,32,Ladpur
+25,3,33,6 No. Pulia
+25,4,34,Fountain Chowk
+25,5,35,Rispana
+25,6,36,Kargi Chowk
+25,7,4,ISBT
+25,8,5,Geu
+26,1,89,Banjarawala
+26,2,88,Bangali Kothi
+26,3,36,Kargi Chowk
+26,4,4,ISBT
+26,5,5,Geu
+27,1,67,Doiwala
+27,2,68,Lachiwala
+27,3,69,Kuanwala
+27,4,70,Harawala
+27,5,71,Miawala
+27,6,72,Mokampur
+27,7,73,Jogiwala
+27,8,35,Rispana
+27,9,4,ISBT
+27,10,5,Geu
+32,1,35,Rispana
+32,2,36,Kargi Chowk
+32,3,4,ISBT
+32,4,5,Geu
+33,1,31,Shastdhara Crossing
+33,2,32,Ladpur
+33,3,33,6 No. Pulia
+33,4,34,Fountain Chowk
+33,5,35,Rispana
+33,6,36,Kargi Chowk
+33,7,4,ISBT
+33,8,5,Geu
+34,1,50,Selaqui Chowk
+34,2,51,Sudhowala
+34,3,52,Nanda Ki Chowki
+34,4,53,Premnagar
+34,5,54,Panditwari
+34,6,55,Vasant Vihar
+34,7,24,Baliwala Chowk
+34,8,17,GMS Road
+34,9,5,Geu
+35,1,39,Rajpur
+35,2,40,Krishna Chowk
+35,3,41,Jakhan
+35,4,42,Dilaram Bazar
+35,5,43,Nanni Bakery
+35,6,44,Survey Chowk
+35,7,45,Dwarka Store
+35,8,46,Araghar
+35,9,35,Rispana
+35,10,36,Kargi Chowk
+35,11,4,ISBT
+35,12,5,Geu
+36,1,34,Fountain Chowk
+36,2,83,Nehru Coloney
+36,3,84,Chanchal Dairy
+36,4,35,Rispana
+36,5,36,Kargi Chowk
+36,6,4,ISBT
+36,7,5,Geu
+37,1,50,Selaqui Chowk
+37,2,51,Sudhowala
+37,3,52,Nanda Ki Chowki
+37,4,53,Premnagar
+37,5,54,Panditwari
+37,6,55,Vasant Vihar
+37,7,24,Baliwala Chowk
+37,8,17,GMS Road
+37,9,5,Geu
+38,1,15,ONGC Chowk
+38,2,16,Ballupur Chowk
+38,3,17,GMS Road
+38,4,5,Geu
+39,1,70,Harawala
+39,2,71,Miawala
+39,3,72,Mokampur
+39,4,73,Jogiwala
+39,5,35,Rispana
+39,6,4,ISBT
+39,7,5,Geu
+40,1,75,Gujuraunwala
+40,2,76,Ranjawala
+40,3,77,Raipur Chowk
+40,4,33,6 No. Pulia
+40,5,78,Ring Road
+40,6,34,Fountain Chowk
+40,7,35,Rispana
+40,8,4,ISBT
+40,9,5,Geu
+41,1,33,6 No. Pulia
+41,2,78,Ring Road
+41,3,34,Fountain Chowk
+41,4,35,Rispana
+41,5,36,Kargi Chowk
+41,6,4,ISBT
+41,7,5,Geu
+42,1,10,Asley Hall
+42,2,8,Clock Tower
+42,3,9,Darshanlal Chowk
+42,4,2,Saharanpur Chowk
+42,5,4,ISBT
+42,6,5,Geu
+43,1,47,Great Value
+43,2,42,Dilaram Bazar
+43,3,43,Nanni Bakery
+43,4,44,Survey Chowk
+43,5,45,Dwarka Store
+43,6,46,Araghar
+43,7,35,Rispana
+43,8,36,Kargi Chowk
+43,9,4,ISBT
+43,10,5,Geu
+44,1,18,Rajender Nagar
+44,2,19,Yamuna Coloney
+44,3,20,Bindal Pul
+44,4,21,Kishan Nagar
+44,5,22,Blood Bank
+44,6,16,Ballupur Chowk
+44,7,17,GMS Road
+44,8,5,Geu
+45,1,72,Mokampur
+45,2,73,Jogiwala
+45,3,35,Rispana
+45,4,36,Kargi Chowk
+45,5,4,ISBT
+45,6,5,Geu
+46,1,29,Naya Gaon Palio
+46,2,30,Badowala
+46,3,27,Telpur
+46,4,28,Mehuwala
+46,5,4,ISBT
+46,6,5,Geu
+47,1,57,Vikas Nagar
+47,2,58,Tehsil
+47,3,59,Harbatpur Chowk
+47,4,60,Langa Road
+47,5,61,Shaspur
+47,6,50,Selaqui Chowk
+47,7,51,Sudhowala
+47,8,52,Nanda Ki Chowki
+47,9,53,Premnagar
+47,10,54,Panditwari
+47,11,55,Vasant Vihar
+47,12,24,Baliwala Chowk
+47,13,17,GMS Road
+47,14,5,Geu
+48,1,35,Rispana
+48,2,36,Kargi Chowk
+48,3,4,ISBT
+48,4,5,Geu
+49,1,77,Raipur Chowk
+49,2,82,Dobhal Chowk
+49,3,33,6 No. Pulia
+49,4,78,Ring Road
+49,5,81,Post Office Nehru Gram
+49,6,73,Jogiwala
+49,7,35,Rispana
+49,8,4,ISBT
+49,9,5,Geu
+50,1,29,Naya Gaon Palio
+50,2,30,Badowala
+50,3,27,Telpur
+50,4,28,Mehuwala
+50,5,4,ISBT
+50,6,5,Geu
+51,1,56,Kulhal
+51,2,4,ISBT
+51,3,5,Geu
+52,1,77,Raipur Chowk
+52,2,82,Dobhal Chowk
+52,3,33,6 No. Pulia
+52,4,78,Ring Road
+52,5,81,Post Office Nehru Gram
+52,6,73,Jogiwala
+52,7,35,Rispana
+52,8,4,ISBT
+52,9,5,Geu
+53,1,71,Miawala
+53,2,72,Mokampur
+53,3,73,Jogiwala
+53,4,35,Rispana
+53,5,4,ISBT
+53,6,5,Geu
+54,1,37,IT Park
+54,2,38,Nala Paani Chowk
+54,3,31,Shastdhara Crossing
+54,4,32,Ladpur
+54,5,33,6 No. Pulia
+54,6,34,Fountain Chowk
+54,7,35,Rispana
+54,8,36,Kargi Chowk
+54,9,4,ISBT
+54,10,5,Geu
+55,1,47,Great Value
+55,2,42,Dilaram Bazar
+55,3,43,Nanni Bakery
+55,4,44,Survey Chowk
+55,5,45,Dwarka Store
+55,6,46,Araghar
+55,7,35,Rispana
+55,8,36,Kargi Chowk
+55,9,4,ISBT
+55,10,5,Geu
+56,1,92,Amrik Hall
+56,2,49,Mata Mandir
+56,3,36,Kargi Chowk
+56,4,4,ISBT
+56,5,5,Geu

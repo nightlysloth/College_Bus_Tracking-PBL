@@ -1,0 +1,53 @@
+bus_no,registration,departure,driver,type,stop_count,stops
+1,UK07PA1688,07:10,Mahipal,S,11,Bahuwala Raja Road;Raja Road;Bansiwala;Manduwala;Sudhowala;Nanda Ki Chowki;Premnagar;Panditwari;Baliwala Chowk;GMS Road;Geu
+2,UK07S2788,08:00,Shankar Thapa,S,5,Prince Chowk;Saharanpur Chowk;Matawala Bagh;ISBT;Geu
+3,UK07PA2334,08:00,Baldev,S,6,Premnagar;Panditwari;Vasant Vihar;Baliwala Chowk;GMS Road;Geu
+4,UK07PA2192,07:35,Nagendra Singh,S,9,Selaqui Chowk;Sudhowala;Nanda Ki Chowki;Premnagar;Panditwari;Vasant Vihar;Baliwala Chowk;GMS Road;Geu
+5,UK07PA2191,07:35,Dinesh,S,10,Doiwala;Lachiwala;Kuanwala;Harawala;Miawala;Mokampur;Jogiwala;Rispana;ISBT;Geu
+6,UK07PA2341,07:35,Kamlesh Kumar,S,11,Ranipokhri;Doiwala;Lachiwala;Kuanwala;Harawala;Miawala;Mokampur;Jogiwala;Rispana;ISBT;Geu
+7,UK07PA2333,08:00,Pooran,S,8,Nakrounda More;Harawala;Miawala;Mokampur;Jogiwala;Rispana;ISBT;Geu
+8,UK07PA1266,08:10,Sanjeev Gurung,S,6,SGRR Mathurawala;Vishnupuram;Bangali Kothi;Kargi Chowk;ISBT;Geu
+9,UK07PA1699,08:00,Rakesh,S,5,Matawala Bagh;Sabji Mandi;Majra;ISBT;Geu
+10,UK07PA1690,07:50,RK Joshi,S,7,Ranjawala;Raipur Chowk;IID;Ring Road;Jogiwala;ISBT;Geu
+11,UK07D3359,07:50,Jubeer Ahmad,S,5,Post Office Nehru Gram;Jogiwala;Rispana;ISBT;Geu
+12,UK07PA1695,08:00,Mohan Singh Panwar,S,6,Dharampur Chowk;Balbir Road;Fountain Chowk;Rispana;ISBT;Geu
+13,UK07PA0858,08:00,Govind Singh,S,7,Daudwala;Mathurawala;Vishnupuram;Bangali Kothi;Kargi Chowk;ISBT;Geu
+14,UK07PA1811,08:00,Mukesh Paswan,S,10,Doiwala;Lachiwala;Kuanwala;Harawala;Miawala;Mokampur;Jogiwala;Rispana;ISBT;Geu
+15,UK07PA1944,08:00,Manik Chand,S,6,Race Course;Dharampur Chowk;Mata Mandir;Kargi Chowk;ISBT;Geu
+16,UA07L5333,08:00,Kamal Singh Kathait,S,8,Survey Chowk;Dwarka Store;Araghar;Dharampur Chowk;Mata Mandir;Kargi Chowk;ISBT;Geu
+17,UK07PA1694,08:00,Rama,M,3,Ballupur Chowk;GMS Road;Geu
+18,UK07PA1696,08:00,Krishan Kumar,M,4,Saharanpur Chowk;Matawala Bagh;ISBT;Geu
+19,UK07PA1698,08:00,Sunil Kumar,S,5,Clock Tower;Darshanlal Chowk;Saharanpur Chowk;ISBT;Geu
+20,UK07PA2190,08:00,Sunil Kumar,S,8,Garhi Cantt;Vijay Coloney;Chir Bagh;CM House;ONGC Chowk;Ballupur Chowk;GMS Road;Geu
+21,UK07PA1910,08:00,Babu Giri,S,6,Hathibadkala;Garhi Cantt;ONGC Chowk;Ballupur Chowk;GMS Road;Geu
+22,UA07Q4731,08:00,Ashok Kumar,M,4,Supply;Ballupur Chowk;GMS Road;Geu
+23,UK07PA0630,08:00,Narayan,M,4,Ballupur Chowk;Baliwala Chowk;GMS Road;Geu
+24,UK07PA1691,08:00,Pratap Singh,S,5,Badowala Petrol Pump;Telpur;Mehuwala;ISBT;Geu
+25,UK07PA1689,08:00,Rahul Kumar,S,8,Kali Mandir;Ladpur;6 No. Pulia;Fountain Chowk;Rispana;Kargi Chowk;ISBT;Geu
+26,UK07PA1693,08:00,Yog Raj Bakshi,S,5,Banjarawala;Bangali Kothi;Kargi Chowk;ISBT;Geu
+27,UK07PA1791,08:00,Gurveer,S,10,Doiwala;Lachiwala;Kuanwala;Harawala;Miawala;Mokampur;Jogiwala;Rispana;ISBT;Geu
+32,UK04PA0394,08:30,Imran,M,4,Rispana;Kargi Chowk;ISBT;Geu
+33,UK07PA2584,07:50,Deepak Paswan,S,8,Shastdhara Crossing;Ladpur;6 No. Pulia;Fountain Chowk;Rispana;Kargi Chowk;ISBT;Geu
+34,UK07PA2623,07:35,Rai Singh,S,9,Selaqui Chowk;Sudhowala;Nanda Ki Chowki;Premnagar;Panditwari;Vasant Vihar;Baliwala Chowk;GMS Road;Geu
+35,UK07PA2622,08:00,Amit Chhetri,S,12,Rajpur;Krishna Chowk;Jakhan;Dilaram Bazar;Nanni Bakery;Survey Chowk;Dwarka Store;Araghar;Rispana;Kargi Chowk;ISBT;Geu
+36,UK07PA2621,08:00,Jyoti Tiwari,S,7,Fountain Chowk;Nehru Coloney;Chanchal Dairy;Rispana;Kargi Chowk;ISBT;Geu
+37,UK07PA3348,07:35,Sanjay,S,9,Selaqui Chowk;Sudhowala;Nanda Ki Chowki;Premnagar;Panditwari;Vasant Vihar;Baliwala Chowk;GMS Road;Geu
+38,UK07PA3344,08:00,Kalan Singh,M,4,ONGC Chowk;Ballupur Chowk;GMS Road;Geu
+39,UK07PA3346,08:00,Mukesh Kumar II,S,7,Harawala;Miawala;Mokampur;Jogiwala;Rispana;ISBT;Geu
+40,UK07PA3345,07:50,Vishesh Tyagi,S,9,Gujuraunwala;Ranjawala;Raipur Chowk;6 No. Pulia;Ring Road;Fountain Chowk;Rispana;ISBT;Geu
+41,UK07PA3546,07:50,Gajendra Rana,S,7,6 No. Pulia;Ring Road;Fountain Chowk;Rispana;Kargi Chowk;ISBT;Geu
+42,UK07PA3542,08:00,Hari Singh,S,6,Asley Hall;Clock Tower;Darshanlal Chowk;Saharanpur Chowk;ISBT;Geu
+43,UK07PA3545,08:00,Ram Bahadur,S,10,Great Value;Dilaram Bazar;Nanni Bakery;Survey Chowk;Dwarka Store;Araghar;Rispana;Kargi Chowk;ISBT;Geu
+44,UK07PA3814,08:00,Sher Bahadur,S,8,Rajender Nagar;Yamuna Coloney;Bindal Pul;Kishan Nagar;Blood Bank;Ballupur Chowk;GMS Road;Geu
+45,UK07PA3815,08:10,SK Sahu,S,6,Mokampur;Jogiwala;Rispana;Kargi Chowk;ISBT;Geu
+46,UK07PA3816,08:00,Mor Singh,S,6,Naya Gaon Palio;Badowala;Telpur;Mehuwala;ISBT;Geu
+47,UK07PA3848,07:10,Rohit Singh,S,14,Vikas Nagar;Tehsil;Harbatpur Chowk;Langa Road;Shaspur;Selaqui Chowk;Sudhowala;Nanda Ki Chowki;Premnagar;Panditwari;Vasant Vihar;Baliwala Chowk;GMS Road;Geu
+48,UK07PA3849,08:00,Sukhbir Singh,M,4,Rispana;Kargi Chowk;ISBT;Geu
+49,UK07PA4117,08:00,Deepak Sharma,S,9,Raipur Chowk;Dobhal Chowk;6 No. Pulia;Ring Road;Post Office Nehru Gram;Jogiwala;Rispana;ISBT;Geu
+50,UK07PA4118,08:00,R.K Mishra,S,6,Naya Gaon Palio;Badowala;Telpur;Mehuwala;ISBT;Geu
+51,UK07PA4119,07:00,Manjeet,M,3,Kulhal;ISBT;Geu
+52,UK07PA4121,08:00,Meen Bahadur,S,9,Raipur Chowk;Dobhal Chowk;6 No. Pulia;Ring Road;Post Office Nehru Gram;Jogiwala;Rispana;ISBT;Geu
+53,UK07PA4160,08:00,Salim,S,6,Miawala;Mokampur;Jogiwala;Rispana;ISBT;Geu
+54,UK07PA4161,08:00,Mukesh Kumar,S,10,IT Park;Nala Paani Chowk;Shastdhara Crossing;Ladpur;6 No. Pulia;Fountain Chowk;Rispana;Kargi Chowk;ISBT;Geu
+55,UK07PA4171,08:00,Pradeep Pokhriyal,S,10,Great Value;Dilaram Bazar;Nanni Bakery;Survey Chowk;Dwarka Store;Araghar;Rispana;Kargi Chowk;ISBT;Geu
+56,UK07PA4172,08:00,Rajdeep Singh,S,5,Amrik Hall;Mata Mandir;Kargi Chowk;ISBT;Geu
