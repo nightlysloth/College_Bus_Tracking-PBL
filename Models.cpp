@@ -1,21 +1,8 @@
-// =====================================================================
-// File: Models.cpp
-// Purpose: Implementations of BusSystem and helper utilities.
-//
-// Simple, step-by-step logic designed to be easy to understand and explain.
-// All functions use call-by-value.
-// =====================================================================
 #include "Models.h"
 #include <iostream>
 
-// Global instance of the BusSystem
 BusSystem sys;
 
-// ---------------------------------------------------------------------
-// HELPER FUNCTIONS
-// ---------------------------------------------------------------------
-
-// Convert integer to string without using any fancy libraries
 string intToString(int number) {
     if (number == 0) {
         return "0";
@@ -37,7 +24,6 @@ string intToString(int number) {
     return result;
 }
 
-// Convert minutes since midnight (e.g. 455) to "07:35"
 string formatTime(int minutes) {
     int hours = minutes / 60;
     int mins = minutes % 60;
@@ -53,7 +39,6 @@ string formatTime(int minutes) {
     return result;
 }
 
-// Convert string of digits to integer, returns -1 if invalid
 int parseInt(string text) {
     if (text.length() == 0 || text.length() > 9) {
         return -1;
@@ -68,7 +53,6 @@ int parseInt(string text) {
     return result;
 }
 
-// Parse "HH:MM" format into minutes since midnight, returns -1 if invalid
 int parseTime(string text) {
     int colonPos = -1;
     for (int i = 0; i < (int)text.length(); i++) {
@@ -96,14 +80,12 @@ int parseTime(string text) {
     return h * 60 + m;
 }
 
-// Human-readable status name
 string statusName(int status) {
     if (status == NOT_STARTED) return "Not Started";
     if (status == RUNNING) return "Running";
     return "Reached";
 }
 
-// Standard Insertion Sort on two parallel arrays
 void insertionSortByKey(int items[], int keys[], int n) {
     for (int i = 1; i < n; i++) {
         int currentKey = keys[i];
@@ -119,22 +101,17 @@ void insertionSortByKey(int items[], int keys[], int n) {
     }
 }
 
-// ---------------------------------------------------------------------
-// BUS SYSTEM CONSTRUCTOR & DATA LOADING
-// ---------------------------------------------------------------------
 BusSystem::BusSystem() {
     stationCount = 0;
     busCount = 0;
     overrideCount = 0;
-    now = DEFAULT_START_TIME; // 07:00 AM
+    now = DEFAULT_START_TIME;
 }
 
-// Add a station from stations.csv
 int BusSystem::addStation(int id, string name, int busesServing) {
     if (stationCount >= MAX_STATIONS) {
         return -1;
     }
-    // Check if station already exists
     if (stationIndex.get(name) != -1) {
         return -1;
     }
@@ -142,7 +119,6 @@ int BusSystem::addStation(int id, string name, int busesServing) {
     stations[stationCount].name = name;
     stations[stationCount].busesServing = busesServing;
 
-    // Save in hash table for fast lookup by name
     stationIndex.insert(name, stationCount);
 
     int newIndex = stationCount;
@@ -150,13 +126,11 @@ int BusSystem::addStation(int id, string name, int busesServing) {
     return newIndex;
 }
 
-// Add a bus from buses.csv
 bool BusSystem::addBus(int busNo, string registration, int departure,
                        string driver, char type, int stopIndexes[], int stopCount) {
     if (busCount >= MAX_BUSES || stopCount < 1 || stopCount > MAX_STOPS) {
         return false;
     }
-    // Check for duplicate bus number
     for (int i = 0; i < busCount; i++) {
         if (buses[i].busNo == busNo) {
             return false;
@@ -182,7 +156,6 @@ bool BusSystem::addBus(int busNo, string registration, int departure,
     return true;
 }
 
-// Add travel time override from edges.csv
 bool BusSystem::addEdgeOverride(int fromStation, int toStation, int minutes) {
     if (overrideCount >= MAX_OVERRIDES) {
         return false;
@@ -194,7 +167,6 @@ bool BusSystem::addEdgeOverride(int fromStation, int toStation, int minutes) {
     return true;
 }
 
-// Insertion Sort to keep buses sorted by bus number (needed for binary search)
 void BusSystem::sortBusesByNumber() {
     for (int i = 1; i < busCount; i++) {
         Bus keyBus = buses[i];
@@ -207,7 +179,6 @@ void BusSystem::sortBusesByNumber() {
     }
 }
 
-// For each station, build the list of bus indexes that stop at it
 void BusSystem::buildStationBusLists() {
     for (int s = 0; s < stationCount; s++) {
         busesAtStation[s].clear();
@@ -220,16 +191,10 @@ void BusSystem::buildStationBusLists() {
     }
 }
 
-// ---------------------------------------------------------------------
-// SEARCHING
-// ---------------------------------------------------------------------
-
-// Hash table lookup: returns station index or -1
 int BusSystem::findStation(string name) {
     return stationIndex.get(name);
 }
 
-// Linear search: finds stations starting with prefix (case-insensitive)
 int BusSystem::suggestStations(string prefix, int results[], int maxResults) {
     string lowerPrefix = toLowerCase(prefix);
     int found = 0;
@@ -245,7 +210,6 @@ int BusSystem::suggestStations(string prefix, int results[], int maxResults) {
     return found;
 }
 
-// Binary search on sorted buses array: returns bus index or -1
 int BusSystem::findBus(int busNo) {
     int low = 0;
     int high = busCount - 1;
@@ -262,7 +226,6 @@ int BusSystem::findBus(int busNo) {
     return -1;
 }
 
-// Linear search in a bus's route to find which stop number it is
 int BusSystem::stopPositionOf(int busIdx, int stationIdx) {
     for (int i = 0; i < buses[busIdx].stopCount; i++) {
         if (buses[busIdx].stops[i] == stationIdx) {
@@ -272,21 +235,15 @@ int BusSystem::stopPositionOf(int busIdx, int stationIdx) {
     return -1;
 }
 
-// ---------------------------------------------------------------------
-// SIMULATION: TIME, POSITION, ETA
-// ---------------------------------------------------------------------
-
-// Travel time in minutes between consecutive stations
 int BusSystem::edgeMinutes(int fromStation, int toStation) {
     for (int i = 0; i < overrideCount; i++) {
         if (overrides[i].fromStation == fromStation && overrides[i].toStation == toStation) {
             return overrides[i].minutes;
         }
     }
-    return DEFAULT_EDGE_MINUTES; // 4 minutes default
+    return DEFAULT_EDGE_MINUTES;
 }
 
-// Minutes elapsed from first stop to stop number stopPos
 int BusSystem::cumulativeTime(int busIdx, int stopPos) {
     int total = 0;
     for (int k = 1; k <= stopPos; k++) {
@@ -297,7 +254,6 @@ int BusSystem::cumulativeTime(int busIdx, int stopPos) {
     return total;
 }
 
-// Status of bus: NOT_STARTED, RUNNING, or REACHED
 int BusSystem::getStatus(int busIdx) {
     if (now < buses[busIdx].departure) {
         return NOT_STARTED;
@@ -310,7 +266,6 @@ int BusSystem::getStatus(int busIdx) {
     return RUNNING;
 }
 
-// Index of current stop the bus is at or just left
 int BusSystem::currentStopIndex(int busIdx) {
     if (now < buses[busIdx].departure) {
         return 0;
@@ -327,7 +282,6 @@ int BusSystem::currentStopIndex(int busIdx) {
     return index;
 }
 
-// Estimated arrival time (minutes from midnight) at given station
 int BusSystem::etaAt(int busIdx, int stationIdx) {
     int pos = stopPositionOf(busIdx, stationIdx);
     if (pos == -1) {
@@ -336,7 +290,6 @@ int BusSystem::etaAt(int busIdx, int stationIdx) {
     return buses[busIdx].departure + cumulativeTime(busIdx, pos);
 }
 
-// Has the bus already departed from this station?
 bool BusSystem::hasPassed(int busIdx, int stationIdx) {
     int eta = etaAt(busIdx, stationIdx);
     if (eta == -1) {
@@ -345,12 +298,6 @@ bool BusSystem::hasPassed(int busIdx, int stationIdx) {
     return eta < now;
 }
 
-// ---------------------------------------------------------------------
-// SIMULATION: SEATS
-// ---------------------------------------------------------------------
-
-// Occupied seats formula from PRD:
-// occupied = 5 + (busNo * 13) % 10 + 3 * stopsTravelled
 int BusSystem::seatsOccupied(int busIdx) {
     int stopsTravelled = 0;
     if (getStatus(busIdx) != NOT_STARTED) {
@@ -363,12 +310,10 @@ int BusSystem::seatsOccupied(int busIdx) {
     return occupied;
 }
 
-// Free seats
 int BusSystem::seatsFree(int busIdx) {
     return buses[busIdx].capacity - seatsOccupied(busIdx);
 }
 
-// Plenty (> 40% free), Filling (10% - 40% free), Full (< 10% free)
 string BusSystem::seatStatus(int busIdx) {
     int freeCount = seatsFree(busIdx);
     int cap = buses[busIdx].capacity;
@@ -381,11 +326,6 @@ string BusSystem::seatStatus(int busIdx) {
     return "Full";
 }
 
-// ---------------------------------------------------------------------
-// ARRIVAL BOARD & RECOMMENDATION
-// ---------------------------------------------------------------------
-
-// Build queue of upcoming buses sorted by ETA (earliest first)
 IntQueue BusSystem::buildArrivalBoard(int stationIdx) {
     IntQueue board;
     int busList[MAX_BUSES];
@@ -409,7 +349,6 @@ IntQueue BusSystem::buildArrivalBoard(int stationIdx) {
     return board;
 }
 
-// Score formula: waitMinutes + 0.5 * rideMinutes + seatPenalty (lower is better)
 double BusSystem::scoreBus(int busIdx, int stationIdx) {
     int pos = stopPositionOf(busIdx, stationIdx);
     if (pos == -1 || hasPassed(busIdx, stationIdx)) {
@@ -428,7 +367,6 @@ double BusSystem::scoreBus(int busIdx, int stationIdx) {
     return wait + 0.5 * ride + penalty;
 }
 
-// Recommend best and second best bus
 Recommendation BusSystem::recommend(int stationIdx) {
     Recommendation rec;
     rec.bestBus = -1;
@@ -458,11 +396,8 @@ Recommendation BusSystem::recommend(int stationIdx) {
     return rec;
 }
 
-// ---------------------------------------------------------------------
-// CLOCK CONTROLS
-// ---------------------------------------------------------------------
 void BusSystem::advanceClock(int minutes) {
-    clockHistory.push(now); // push to stack for undo
+    clockHistory.push(now);
     now = now + minutes;
     if (now > 23 * 60 + 59) {
         now = 23 * 60 + 59;
@@ -478,6 +413,6 @@ bool BusSystem::undoClock() {
     if (clockHistory.isEmpty()) {
         return false;
     }
-    now = clockHistory.pop(); // pop previous time from stack
+    now = clockHistory.pop();
     return true;
 }

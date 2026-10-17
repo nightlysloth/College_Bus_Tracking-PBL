@@ -1,15 +1,3 @@
-// =====================================================================
-// File: main.cpp
-// Purpose: Interactive terminal menu for College Bus Tracking System.
-//
-// Simple, beginner-friendly C++ code.
-// No friend functions, no static variables/functions, no reference parameters.
-// All functions use call-by-value and access the global 'sys' object.
-// Contains only fully implemented and working features.
-//
-// Compile:  g++ *.cpp -o main
-// Run:      ./main data/
-// =====================================================================
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -19,11 +7,6 @@
 #include "CsvLoader.h"
 using namespace std;
 
-// ---------------------------------------------------------------------
-// Basic Input Helpers (Call by value)
-// ---------------------------------------------------------------------
-
-// Prints a prompt and reads one full line of input
 string readLine(string prompt) {
     cout << prompt;
     string line = "";
@@ -34,16 +17,12 @@ string readLine(string prompt) {
     return trimString(line);
 }
 
-// Reads an integer number from the user, returns -1 if invalid
 int readNumber(string prompt) {
     string line = readLine(prompt);
     int value = parseInt(line);
     return value;
 }
 
-// Asks the user for a station name.
-// Returns the station index or -1 if not found.
-// Shows up to 5 prefix suggestions if not found.
 int askForStation(string prompt) {
     string name = readLine(prompt);
     if (name == "") {
@@ -51,7 +30,6 @@ int askForStation(string prompt) {
         return -1;
     }
 
-    // Exact search using Hash Table
     int index = sys.findStation(name);
     if (index != -1) {
         return index;
@@ -59,7 +37,6 @@ int askForStation(string prompt) {
 
     cout << "Station '" << name << "' not found." << endl;
 
-    // Linear search for prefix suggestions
     int suggestions[5];
     int found = sys.suggestStations(name, suggestions, 5);
     if (found > 0) {
@@ -71,9 +48,6 @@ int askForStation(string prompt) {
     return -1;
 }
 
-// ---------------------------------------------------------------------
-// Feature 1: Search Station (Exact lookup + Prefix suggestions)
-// ---------------------------------------------------------------------
 void featureSearchStation() {
     int s = askForStation("Enter station name (full or first letters): ");
     if (s == -1) {
@@ -99,9 +73,6 @@ void featureSearchStation() {
     cout << endl;
 }
 
-// ---------------------------------------------------------------------
-// Feature 2: Search Bus by Bus Number (Binary Search)
-// ---------------------------------------------------------------------
 void featureSearchBus() {
     int busNo = readNumber("Enter bus number: ");
     if (busNo == -1) {
@@ -109,7 +80,7 @@ void featureSearchBus() {
         return;
     }
 
-    int b = sys.findBus(busNo); // Binary Search
+    int b = sys.findBus(busNo);
     if (b == -1) {
         cout << "Bus " << busNo << " not found." << endl;
         return;
@@ -146,9 +117,6 @@ void featureSearchBus() {
          << " (" << sys.seatStatus(b) << ")" << endl;
 }
 
-// ---------------------------------------------------------------------
-// Feature 3: Route of a Bus Number
-// ---------------------------------------------------------------------
 void featureSearchRoute() {
     int busNo = readNumber("Enter bus number: ");
     if (busNo == -1) {
@@ -183,9 +151,6 @@ void featureSearchRoute() {
     cout << "Total travel time: " << sys.cumulativeTime(b, bus.stopCount - 1) << " min" << endl;
 }
 
-// ---------------------------------------------------------------------
-// Feature 4: Arrival Board (Using Queue & Earliest ETA first)
-// ---------------------------------------------------------------------
 void printArrivalBoard(int s) {
     cout << endl << "Station: " << sys.stations[s].name << "      Time: " << formatTime(sys.now) << endl;
 
@@ -229,9 +194,6 @@ void featureArrivalBoard() {
     printArrivalBoard(s);
 }
 
-// ---------------------------------------------------------------------
-// Feature 5: Recommend a Bus
-// ---------------------------------------------------------------------
 void printReason(int b, int s) {
     int wait = sys.etaAt(b, s) - sys.now;
     cout << "Bus " << sys.buses[b].busNo << " (arrives in " << wait << " min, "
@@ -266,9 +228,6 @@ void featureRecommend() {
     }
 }
 
-// ---------------------------------------------------------------------
-// Feature 6: Advance Clock (Stack gives UNDO capability)
-// ---------------------------------------------------------------------
 void featureClock() {
     cout << "Time now: " << formatTime(sys.now) << endl;
     cout << " 1. +1 minute   2. +5 minutes   3. +10 minutes" << endl;
@@ -302,9 +261,6 @@ void featureClock() {
     cout << "Time is now " << formatTime(sys.now) << endl;
 }
 
-// ---------------------------------------------------------------------
-// Menu Display
-// ---------------------------------------------------------------------
 void printMenu() {
     cout << endl;
     cout << "=========== COLLEGE BUS TRACKER (Team ByteMe) ===========" << endl;
@@ -320,9 +276,6 @@ void printMenu() {
     cout << "  0. Exit" << endl;
 }
 
-// ---------------------------------------------------------------------
-// Main Function
-// ---------------------------------------------------------------------
 int main(int argc, char* argv[]) {
     string folder = "data/";
     if (argc > 1) {

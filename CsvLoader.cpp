@@ -1,20 +1,11 @@
-// =====================================================================
-// File: CsvLoader.cpp
-// Purpose: Loads stations.csv, buses.csv, and edges.csv.
-//
-// Simple line-by-line reading with ifstream and basic string splitting.
-// No static functions or variables. All functions use call-by-value.
-// =====================================================================
 #include <iostream>
 #include <fstream>
 #include "CsvLoader.h"
 
-// Check if character is whitespace or newline
 bool isWhitespace(char c) {
     return (c == ' ' || c == '\t' || c == '\r' || c == '\n');
 }
 
-// Remove spaces and newlines from both ends of string
 string trimString(string text) {
     int start = 0;
     int end = (int)text.length() - 1;
@@ -31,7 +22,6 @@ string trimString(string text) {
     return text.substr(start, end - start + 1);
 }
 
-// Split a line into parts by a separator character (e.g. ',' or ';')
 int splitString(string line, char separator, string parts[], int maxParts) {
     int count = 0;
     string current = "";
@@ -54,10 +44,6 @@ int splitString(string line, char separator, string parts[], int maxParts) {
     return count;
 }
 
-// ---------------------------------------------------------------------
-// Load stations from stations.csv
-// Format: station_id,station_name,buses_serving
-// ---------------------------------------------------------------------
 int loadStations(string path) {
     ifstream file(path.c_str());
     if (!file.is_open()) {
@@ -72,7 +58,6 @@ int loadStations(string path) {
     while (getline(file, line)) {
         lineNo++;
         line = trimString(line);
-        // Skip header row and empty lines
         if (lineNo == 1 || line == "") {
             continue;
         }
@@ -98,10 +83,6 @@ int loadStations(string path) {
     return loaded;
 }
 
-// ---------------------------------------------------------------------
-// Load buses from buses.csv
-// Format: bus_no,registration,departure,driver,type,stop_count,stops
-// ---------------------------------------------------------------------
 int loadBuses(string path) {
     ifstream file(path.c_str());
     if (!file.is_open()) {
@@ -116,7 +97,6 @@ int loadBuses(string path) {
     while (getline(file, line)) {
         lineNo++;
         line = trimString(line);
-        // Skip header row and empty lines
         if (lineNo == 1 || line == "") {
             continue;
         }
@@ -137,7 +117,6 @@ int loadBuses(string path) {
             continue;
         }
 
-        // Split stops separated by ';'
         string stopNames[MAX_STOPS];
         int actualStops = splitString(stopsField, ';', stopNames, MAX_STOPS);
 
@@ -164,14 +143,10 @@ int loadBuses(string path) {
     return loaded;
 }
 
-// ---------------------------------------------------------------------
-// Load travel time overrides from edges.csv
-// Format: from_station,to_station,minutes
-// ---------------------------------------------------------------------
 int loadEdges(string path) {
     ifstream file(path.c_str());
     if (!file.is_open()) {
-        return 0; // Optional file
+        return 0;
     }
 
     string line;
@@ -207,9 +182,6 @@ int loadEdges(string path) {
     return loaded;
 }
 
-// ---------------------------------------------------------------------
-// Master loader: loads stations, buses, edges and finalizes system setup
-// ---------------------------------------------------------------------
 bool loadAllData(string folder) {
     int stationCount = loadStations(folder + "stations.csv");
     if (stationCount <= 0) {
@@ -225,10 +197,7 @@ bool loadAllData(string folder) {
 
     int edgeCount = loadEdges(folder + "edges.csv");
 
-    // Sort buses by number so Binary Search works
     sys.sortBusesByNumber();
-
-    // Map stations to the buses serving them
     sys.buildStationBusLists();
 
     cout << "Loaded " << stationCount << " stations, "
