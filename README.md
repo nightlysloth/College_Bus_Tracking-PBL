@@ -1,4 +1,4 @@
-# College Bus Tracking System – Layer‑by‑Layer Explanation
+# College Bus Tracking System –
 
 ---
 
