@@ -261,6 +261,30 @@ void featureClock() {
     cout << "Time is now " << formatTime(sys.now) << endl;
 }
 
+// ==========================================
+// SORTING DEMONSTRATION
+// ==========================================
+
+// Bubble Sort
+void bubbleSortDemo(int items[], int keys[], int n, int &comparisons, int &moves) {
+    comparisons = 0;
+    moves = 0;
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            comparisons++;
+            if (keys[j] > keys[j + 1]) {
+                int temp = keys[j];
+                keys[j] = keys[j + 1];
+                keys[j + 1] = temp;
+                temp = items[j];
+                items[j] = items[j + 1];
+                items[j + 1] = temp;
+                moves++;
+            }
+        }
+    }
+}
+
 void printMenu() {
     cout << endl;
     cout << "=========== COLLEGE BUS TRACKER (Team ByteMe) ===========" << endl;
@@ -273,6 +297,7 @@ void printMenu() {
     cout << "  4. Arrival board" << endl;
     cout << "  5. Recommend a bus" << endl;
     cout << "  6. Advance clock" << endl;
+    cout << "  7. Sorting Demonstration" << endl;
     cout << "  0. Exit" << endl;
 }
 
@@ -312,6 +337,7 @@ int main(int argc, char* argv[]) {
             case 4:  featureArrivalBoard(); break;
             case 5:  featureRecommend(); break;
             case 6:  featureClock(); break;
+            case 7:  featureSortingDemo(); break;
             case 0:  running = false; break;
             default: cout << "Invalid choice. Try again." << endl;
         }
