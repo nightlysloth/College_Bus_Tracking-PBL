@@ -285,6 +285,31 @@ void bubbleSortDemo(int items[], int keys[], int n, int &comparisons, int &moves
     }
 }
 
+// Insertion Sort
+void insertionSortDemo(int items[], int keys[], int n, int &comparisons, int &moves) {
+    comparisons = 0;
+    moves = 0;
+    for (int i = 1; i < n; i++) {
+        int currentKey = keys[i];
+        int currentItem = items[i];
+        int j = i - 1;
+        while (j >= 0) {
+            comparisons++;
+            if (keys[j] > currentKey) {
+                keys[j + 1] = keys[j];
+                items[j + 1] = items[j];
+                moves++;
+                j--;
+            } else {
+                break;
+            }
+        }
+        keys[j + 1] = currentKey;
+        items[j + 1] = currentItem;
+        moves++;
+    }
+}
+
 void printMenu() {
     cout << endl;
     cout << "=========== COLLEGE BUS TRACKER (Team ByteMe) ===========" << endl;
