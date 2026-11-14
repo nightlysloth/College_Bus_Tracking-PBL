@@ -309,6 +309,115 @@ void insertionSortDemo(int items[], int keys[], int n, int &comparisons, int &mo
         moves++;
     }
 }
+// Selection Sort
+void selectionSortDemo(int items[], int keys[], int n, int &comparisons, int &moves) {
+    comparisons = 0;
+    moves = 0;
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            comparisons++;
+            if (keys[j] < keys[minIndex]) {
+                minIndex = j;
+            }
+        }
+        if (minIndex != i) {
+            int temp = keys[i];
+            keys[i] = keys[minIndex];
+            keys[minIndex] = temp;
+            temp = items[i];
+            items[i] = items[minIndex];
+            items[minIndex] = temp;
+            moves++;
+        }
+    }
+}
+
+// Main Sorting Demo Feature
+void featureSortingDemo() {
+    if (sys.busCount == 0) {
+        cout << "No buses available for sorting." << endl;
+        return;
+    }
+    int items[MAX_BUSES];
+    int keys[MAX_BUSES];
+    int n = sys.busCount;
+    cout << "\n========== SORTING DEMONSTRATION ==========\n";
+    cout << "\nChoose sorting criteria:\n";
+    cout << "1. Sort by Bus Number\n";
+    cout << "2. Sort by ETA at Geu\n";
+    cout << "3. Sort by Free Seats\n";
+    int criteria = readNumber("Enter choice: ");
+    if (criteria < 1 || criteria > 3) {
+        cout << "Invalid criteria choice.\n";
+        return;
+    }
+    
+    // Store bus indexes and their corresponding keys
+    for (int i = 0; i < n; i++) {
+        items[i] = i;
+        if (criteria == 1) {
+            keys[i] = sys.buses[i].busNo;
+        }
+        else if (criteria == 2) {
+            int lastStop = sys.buses[i].stops[sys.buses[i].stopCount - 1];
+            keys[i] = sys.etaAt(i, lastStop);
+        }
+        else {
+            keys[i] = sys.seatsFree(i);
+        }
+    }
+    cout << "\nChoose Sorting Algorithm:\n";
+    cout << "1. Bubble Sort\n";
+    cout << "2. Insertion Sort\n";
+    cout << "3. Selection Sort\n";
+    int algorithm = readNumber("Enter choice: ");
+    if (algorithm < 1 || algorithm > 3) {
+        cout << "Invalid algorithm choice.\n";
+        return;
+    }
+    int comparisons = 0;
+    int moves = 0;
+    if (algorithm == 1) {
+        bubbleSortDemo(items, keys, n, comparisons, moves);
+    }
+    else if (algorithm == 2) {
+        insertionSortDemo(items, keys, n, comparisons, moves);
+    }
+    else {
+        selectionSortDemo(items, keys, n, comparisons, moves);
+    }
+    cout << "\n========== SORTED BUS LIST ==========\n";
+    cout << left << setw(10) << "Bus No";
+    if (criteria == 1)
+        cout << "Bus Number";
+    else if (criteria == 2)
+        cout << "ETA at Geu";
+    else
+        cout << "Free Seats";
+    cout << endl;
+    cout << "-------------------------------------\n";
+    for (int i = 0; i < n; i++) {
+        cout << left << setw(10)<< sys.buses[items[i]].busNo;
+        if (criteria == 2)
+            cout << formatTime(keys[i]);
+        else
+            cout << keys[i];
+        cout << endl;
+    }
+    cout << "\n========== PERFORMANCE REPORT ==========\n";
+    if (algorithm == 1)
+        cout << "Algorithm: Bubble Sort\n";
+    else if (algorithm == 2)
+        cout << "Algorithm: Insertion Sort\n";
+    else
+        cout << "Algorithm: Selection Sort\n";
+    cout << "Total Buses: " << n << endl;
+    cout << "Comparisons: " << comparisons << endl;
+    cout << "Swaps/Shifts: " << moves << endl;
+    cout << "Total Steps: " << comparisons + moves << endl;
+    cout << "========================================\n";
+}
 
 void printMenu() {
     cout << endl;
