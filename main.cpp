@@ -309,6 +309,7 @@ void insertionSortDemo(int items[], int keys[], int n, int &comparisons, int &mo
         moves++;
     }
 }
+
 // Selection Sort
 void selectionSortDemo(int items[], int keys[], int n, int &comparisons, int &moves) {
     comparisons = 0;
