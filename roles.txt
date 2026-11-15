@@ -1,4 +1,4 @@
 Prateek - 
-Manas - 
+Manas - Worked on graph algorithm- DFS(uses stack data structure) and BFS(uses queue data structure), also built linked list for storing route station sequence. 
 Pooja - Built stack, csv loader,clock undo,Find the fewest stops between two stations,Connectivity check and reachable stations
 Ujjawal - Built Queue, The Simulation(ETA,SEATS), Arrival Board, Merge Sort, Showing Step Count
