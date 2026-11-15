@@ -1,4 +1,4 @@
 Prateek - 
 Manas - 
 Pooja - 
-Ujjawal -
+Ujjawal - Built Queue, The Simulation(ETA,SEATS), Arrival Board, Sorting with Bubble, Insertion, Selection Sort, Showing Step Count
