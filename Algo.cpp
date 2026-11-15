@@ -1,40 +1,5 @@
 #pragma once
 
-inline void bubbleSort(int items[], int keys[], int n, int& comparisons, int& swaps) {
-    comparisons = swaps = 0;
-    for (int i = 0; i < n - 1; i++) {
-        bool swapped = false;
-        for (int j = 0; j < n - i - 1; j++) {
-            comparisons++;
-            if (keys[j] > keys[j + 1]) {
-                int tk = keys[j]; keys[j] = keys[j + 1]; keys[j + 1] = tk;
-                int ti = items[j]; items[j] = items[j + 1]; items[j + 1] = ti;
-                swaps++;
-                swapped = true;
-            }
-        }
-        if (!swapped) break;
-    }
-}
-
-inline void insertionSort(int items[], int keys[], int n, int& comparisons, int& moves) {
-    comparisons = moves = 0;
-    for (int i = 1; i < n; i++) {
-        int keyVal = keys[i], itemVal = items[i], j = i - 1;
-        while (j >= 0) {
-            comparisons++;
-            if (keys[j] > keyVal) {
-                keys[j + 1] = keys[j];
-                items[j + 1] = items[j];
-                moves++;
-                j--;
-            } else break;
-        }
-        keys[j + 1] = keyVal;
-        items[j + 1] = itemVal;
-    }
-}
-
 inline void merge(int items[], int keys[], int left, int mid, int right, int& comparisons, int& moves) {
     int n1 = mid - left + 1, n2 = right - mid;
     int Lk[100], Rk[100], Li[100], Ri[100];
