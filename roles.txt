@@ -1,4 +1,4 @@
 Prateek - 
 Manas - 
 Pooja - Built stack, csv loader,clock undo,Find the fewest stops between two stations,Connectivity check and reachable stations
-Ujjawal - Built Queue, The Simulation(ETA,SEATS), Arrival Board, Sorting with Bubble, Insertion, Selection Sort, Showing Step Count
+Ujjawal - Built Queue, The Simulation(ETA,SEATS), Arrival Board, Merge Sort, Showing Step Count
