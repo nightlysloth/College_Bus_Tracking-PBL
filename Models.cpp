@@ -1,7 +1,5 @@
 #pragma once
-#include <string>
 #include "DataStructures.cpp"
-using namespace std;
 
 const int MAX_STATIONS = 200;
 const int MAX_BUSES = 100;
@@ -17,7 +15,6 @@ enum BusStatus { NOT_STARTED = 0, RUNNING = 1, REACHED = 2 };
 struct Station {
     int id;
     string name;
-    int busesServing;
 };
 
 struct Bus {
@@ -116,9 +113,9 @@ struct BusSystem {
         now = DEFAULT_START_TIME;
     }
 
-    int addStation(int id, string name, int busesServing) {
+    int addStation(int id, string name) {
         if (stationCount >= MAX_STATIONS || stationIndex.get(name) != -1) return -1;
-        stations[stationCount] = {id, name, busesServing};
+        stations[stationCount] = {id, name};
         stationIndex.insert(name, stationCount);
         return stationCount++;
     }

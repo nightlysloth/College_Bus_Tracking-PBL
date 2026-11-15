@@ -24,6 +24,7 @@ inline int splitString(string line, char sep, string parts[], int maxParts) {
     return ++count;
 }
 
+// stations.csv: station_id,station_name
 inline int loadStations(string path) {
     ifstream file(path.c_str());
     if (!file.is_open()) return -1;
@@ -33,15 +34,16 @@ inline int loadStations(string path) {
         lineNo++;
         line = trimString(line);
         if (lineNo == 1 || line.empty()) continue;
-        if (splitString(line, ',', parts, 5) != 3) continue;
-        int id = parseInt(parts[0]), serving = parseInt(parts[2]);
-        if (id != -1 && serving != -1 && !parts[1].empty()) {
-            if (sys.addStation(id, parts[1], serving) != -1) loaded++;
+        if (splitString(line, ',', parts, 5) != 2) continue;
+        int id = parseInt(parts[0]);
+        if (id != -1 && !parts[1].empty()) {
+            if (sys.addStation(id, parts[1]) != -1) loaded++;
         }
     }
     return loaded;
 }
 
+// buses.csv: bus_no,registration,departure,driver,type,stops (stops separated by ';')
 inline int loadBuses(string path) {
     ifstream file(path.c_str());
     if (!file.is_open()) return -1;
@@ -51,14 +53,14 @@ inline int loadBuses(string path) {
         lineNo++;
         line = trimString(line);
         if (lineNo == 1 || line.empty()) continue;
-        if (splitString(line, ',', parts, 10) < 7) continue;
+        if (splitString(line, ',', parts, 10) < 6) continue;
 
         int busNo = parseInt(parts[0]), dep = parseTime(parts[2]);
         char type = parts[4][0];
         if (busNo == -1 || dep == -1 || (type != 'S' && type != 'M')) continue;
 
         string stopNames[MAX_STOPS];
-        int actualStops = splitString(parts[6], ';', stopNames, MAX_STOPS);
+        int actualStops = splitString(parts[5], ';', stopNames, MAX_STOPS);
         int stopIdx[MAX_STOPS];
         bool ok = true;
         for (int i = 0; i < actualStops; i++) {

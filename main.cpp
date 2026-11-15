@@ -38,6 +38,16 @@ int askForStation(string prompt) {
     return -1;
 }
 
+void countStatuses(int& running, int& notStarted, int& reached) {
+    running = notStarted = reached = 0;
+    for (int i = 0; i < sys.busCount; i++) {
+        int st = sys.getStatus(i);
+        if (st == RUNNING) running++;
+        else if (st == NOT_STARTED) notStarted++;
+        else reached++;
+    }
+}
+
 void printBusReason(int b, int s) {
     int wait = sys.etaAt(b, s) - sys.now;
     string waitText = (wait <= 0) ? "Now" : intToString(wait) + " min";
@@ -369,13 +379,8 @@ void featureSortingDemo() {
 }
 
 void featureDashboard() {
-    int running = 0, notStarted = 0, reached = 0;
-    for (int i = 0; i < sys.busCount; i++) {
-        int st = sys.getStatus(i);
-        if (st == RUNNING) running++;
-        else if (st == NOT_STARTED) notStarted++;
-        else reached++;
-    }
+    int running, notStarted, reached;
+    countStatuses(running, notStarted, reached);
 
     cout << "\n========================== SYSTEM DASHBOARD ==========================\n";
     cout << "Current Simulated Time: " << formatTime(sys.now) << endl;
@@ -406,7 +411,7 @@ void featureDashboard() {
     cout << "----------------------------------------------------------------------\n";
     cout << "Major Hub Stations:\n";
     int hI[MAX_STATIONS], hB[MAX_STATIONS];
-    for (int i = 0; i < sys.stationCount; i++) { hI[i] = i; hB[i] = sys.stations[i].busesServing; }
+    for (int i = 0; i < sys.stationCount; i++) { hI[i] = i; hB[i] = sys.busesAtStation[i].size(); }
     for (int i = 0; i < sys.stationCount - 1; i++) {
         for (int j = 0; j < sys.stationCount - i - 1; j++) {
             if (hB[j] < hB[j + 1]) {
@@ -461,13 +466,8 @@ void featureSaveReport() {
 }
 
 void printMenu() {
-    int running = 0, notStarted = 0, reached = 0;
-    for (int i = 0; i < sys.busCount; i++) {
-        int st = sys.getStatus(i);
-        if (st == RUNNING) running++;
-        else if (st == NOT_STARTED) notStarted++;
-        else reached++;
-    }
+    int running, notStarted, reached;
+    countStatuses(running, notStarted, reached);
 
     cout << "\n=========== COLLEGE BUS TRACKER (Team ByteMe) ===========\n";
     cout << " Time: " << formatTime(sys.now)

@@ -9,10 +9,8 @@ struct GraphEdge {
 
 struct StationGraph {
     GraphEdge* adj[MAX_STATIONS];
-    int vertexCount;
 
     StationGraph() {
-        vertexCount = 0;
         for (int i = 0; i < MAX_STATIONS; i++) adj[i] = NULL;
     }
 
@@ -34,7 +32,6 @@ inline StationGraph& getGraph() {
 #define graph (getGraph())
 
 inline void initGraph() {
-    graph.vertexCount = sys.stationCount;
     for (int i = 0; i < MAX_STATIONS; i++) {
         while (graph.adj[i]) {
             GraphEdge* next = graph.adj[i]->next;

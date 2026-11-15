@@ -45,18 +45,6 @@ struct IntList {
         count++;
     }
 
-    void pushFront(int value) {
-        head = new IntNode{value, head};
-        count++;
-    }
-
-    bool contains(int value) const {
-        for (IntNode* t = head; t; t = t->next) {
-            if (t->data == value) return true;
-        }
-        return false;
-    }
-
     int getAt(int position) const {
         if (position < 0 || position >= count) return -1;
         IntNode* t = head;
@@ -84,10 +72,7 @@ struct IntStack {
     IntStack() : top(-1) {}
     void push(int value) { if (top < 499) items[++top] = value; }
     int pop() { return top >= 0 ? items[top--] : -1; }
-    int peek() const { return top >= 0 ? items[top] : -1; }
     bool isEmpty() const { return top == -1; }
-    int size() const { return top + 1; }
-    void clear() { top = -1; }
 };
 
 struct IntQueue {
@@ -111,10 +96,7 @@ struct IntQueue {
         count--;
         return val;
     }
-    int getFront() const { return count > 0 ? items[frontIndex] : -1; }
     bool isEmpty() const { return count == 0; }
-    int size() const { return count; }
-    void clear() { frontIndex = rearIndex = count = 0; }
 };
 
 struct HashEntry {
