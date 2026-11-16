@@ -24,7 +24,6 @@ inline int splitString(string line, char sep, string parts[], int maxParts) {
     return ++count;
 }
 
-// stations.csv: station_id,station_name
 inline int loadStations(string path) {
     ifstream file(path.c_str());
     if (!file.is_open()) return -1;
@@ -43,7 +42,6 @@ inline int loadStations(string path) {
     return loaded;
 }
 
-// buses.csv: bus_no,registration,departure,driver,type,stops (stops separated by ';')
 inline int loadBuses(string path) {
     ifstream file(path.c_str());
     if (!file.is_open()) return -1;
