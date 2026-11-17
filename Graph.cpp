@@ -106,6 +106,8 @@ inline bool dijkstraShortestPath(int src, int dst, int& totalMinutes, int path[]
     return true;
 }
 
+//Implementation of BFS(Breadth first search) 
+
 inline bool bfsFewestStops(int src, int dst, int& stopCount, int path[], int& pathLength) {
     bool visited[MAX_STATIONS] = {false};
     int parent[MAX_STATIONS];
@@ -139,6 +141,8 @@ inline bool bfsFewestStops(int src, int dst, int& stopCount, int path[], int& pa
     stopCount = pathLength - 1;
     return true;
 }
+
+//Implementation of DFS(Depth first search)
 
 inline int dfsReachableStations(int src, int reachableList[], int maxStations) {
     bool visited[MAX_STATIONS] = {false};
