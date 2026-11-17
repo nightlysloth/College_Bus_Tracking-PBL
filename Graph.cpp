@@ -1,13 +1,15 @@
 #pragma once
 #include "Models.cpp"
 
-struct GraphEdge {
+class GraphEdge {
+public:
     int toStation;
     int weight;
     GraphEdge* next;
 };
 
-struct StationGraph {
+class StationGraph {
+public:
     GraphEdge* adj[MAX_STATIONS];
 
     StationGraph() {

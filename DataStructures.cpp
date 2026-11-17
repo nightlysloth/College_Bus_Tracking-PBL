@@ -10,12 +10,14 @@ inline string toLowerCase(string text) {
     return result;
 }
 
-struct IntNode {
+class IntNode {
+public:
     int data;
     IntNode* next;
 };
 
-struct IntList {
+class IntList {
+public:
     IntNode* head;
     int count;
 
@@ -65,7 +67,8 @@ struct IntList {
     }
 };
 
-struct IntStack {
+class IntStack {
+public:
     int items[500];
     int top;
 
@@ -75,7 +78,8 @@ struct IntStack {
     bool isEmpty() const { return top == -1; }
 };
 
-struct IntQueue {
+class IntQueue {
+public:
     int items[500];
     int frontIndex;
     int rearIndex;
@@ -99,13 +103,15 @@ struct IntQueue {
     bool isEmpty() const { return count == 0; }
 };
 
-struct HashEntry {
+class HashEntry {
+public:
     string key;
     int value;
     bool isOccupied;
 };
 
-struct HashTable {
+class HashTable {
+public:
     HashEntry table[211];
 
     HashTable() {
