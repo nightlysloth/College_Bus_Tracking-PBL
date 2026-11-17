@@ -223,15 +223,6 @@ The system clock starts at 07:00 and can move forward by 1, 5 or 10 minutes, be 
 
 ---
 
-## Project constraints
-
-- No STL containers or algorithms. `std::string` and the standard I/O streams are the only library types used.
-- No templates, lambdas or smart pointers.
-- Compiles with `g++ *.cpp -o main`.
-- Fixed limits: 200 stations, 100 buses, 30 stops per route, 50 edge overrides.
-
----
-
 ## Known limitations
 
 - The graph ignores bus schedules, waiting time and transfers.
