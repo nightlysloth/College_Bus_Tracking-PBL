@@ -8,6 +8,8 @@ public:
     GraphEdge* next;
 };
 
+//Formation of adjacency list required for graph algorithm
+
 class StationGraph {
 public:
     GraphEdge* adj[MAX_STATIONS];
