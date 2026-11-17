@@ -223,15 +223,6 @@ The system clock starts at 07:00 and can move forward by 1, 5 or 10 minutes, be 
 
 ---
 
-## Known limitations
-
-- The graph ignores bus schedules, waiting time and transfers.
-- The graph is directed, so a route in the reverse direction exists only if a bus actually runs that way.
-- Bus positions and seat occupancy are simulated from the clock, not read from real GPS or sensors.
-- The hash table has a fixed size and no delete operation.
-
----
-
 ## Team
 
 **Team ByteMe**
