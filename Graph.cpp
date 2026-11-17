@@ -67,6 +67,8 @@ inline void buildGraphFromRoutes() {
     }
 }
 
+//Implementation of Dijkastra Algorithm to find fastest route
+
 inline bool dijkstraShortestPath(int src, int dst, int& totalMinutes, int path[], int& pathLength) {
     int dist[MAX_STATIONS], parent[MAX_STATIONS];
     bool visited[MAX_STATIONS];
